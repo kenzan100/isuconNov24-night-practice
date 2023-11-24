@@ -119,6 +119,8 @@ CREATE TABLE `present_all_masters` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+CREATE INDEX idx_registered_at ON present_all_masters (registered_start_at, registered_end_at);
+
 /* 全員プレゼント履歴テーブル */
 
 CREATE TABLE `user_present_all_received_history` (
