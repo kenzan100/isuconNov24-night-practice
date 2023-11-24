@@ -1,10 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
     bcrypt (3.1.18)
+    estackprof (0.1.1)
+      launchy
+      stackprof (~> 0.2)
+      thor (~> 1.1.0)
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     multi_json (1.15.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
@@ -12,6 +20,7 @@ GEM
     mysql2-cs-bind (0.1.1)
       mysql2
     nio4r (2.5.8)
+    public_suffix (5.0.4)
     puma (5.6.4)
       nio4r (~> 2.0)
     rack (2.2.4)
@@ -34,6 +43,7 @@ GEM
       sinatra (= 2.2.2)
       tilt (~> 2.0)
     stackprof (0.2.25)
+    thor (1.1.0)
     tilt (2.0.11)
 
 PLATFORMS
@@ -41,6 +51,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  estackprof
   irb
   mysql2
   mysql2-cs-bind
@@ -48,7 +59,6 @@ DEPENDENCIES
   rack-cors
   sinatra
   sinatra-contrib
-  stackprof
 
 BUNDLED WITH
    2.3.16
