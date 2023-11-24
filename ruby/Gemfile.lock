@@ -33,6 +33,7 @@ GEM
       rack-protection (= 2.2.2)
       sinatra (= 2.2.2)
       tilt (~> 2.0)
+    stackprof (0.2.25)
     tilt (2.0.11)
 
 PLATFORMS
@@ -47,6 +48,7 @@ DEPENDENCIES
   rack-cors
   sinatra
   sinatra-contrib
+  stackprof
 
 BUNDLED WITH
    2.3.16
