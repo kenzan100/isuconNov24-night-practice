@@ -34,15 +34,30 @@ GITHUB_ISSUE_ID = 1
 BUNDLE = "/home/isucon/local/ruby/bin/bundle"
 
 ALP_MATCHING_GROUP = [
-  "/api/condition/[0-9a-z\-]+$",
-  "/api/condition/[0-9a-z\-]/icon$",
-  "/api/condition/[0-9a-z\-]/graph$",
-  "/api/isu/[0-9a-z\-]+$",
-  "/api/isu/[0-9a-z\-]+/icon$",
-  "/api/isu/[0-9a-z\-]+/graph$",
-  "/isu/[0-9a-z\-]+/condition$",
-  "/isu/[0-9a-z\-]+/graph$",
-  "/isu/[0-9a-z\-]+$"
+  "/admin/user/[0-9]+$",
+  "/admin/user/[0-9]+/ban$",
+  "/admin/user/[0-9]+/gacha/draw/[0-9]+/[0-9]+$",
+  "/admin/user/[0-9]+/gacha/index$",
+  "/admin/user/[0-9]+/home$",
+  "/admin/user/[0-9]+/present/index/[0-9]+$",
+  "/admin/user/[0-9]+/present/receive$",
+  "/admin/user/[0-9]+/reward$",
+  "/admin/user/[0-9]+/card$",
+  "/admin/user/[0-9]+/card/addexp/[0-9]+$",
+  "/admin/user/[0-9]+/card/addexp/[0-9]+$",
+  "/admin/user/[0-9]+/item$",
+  "/user/[0-9]+$",
+  "/user/[0-9]+/ban$",
+  "/user/[0-9]+/gacha/draw/[0-9]+/[0-9]+$",
+  "/user/[0-9]+/gacha/index$",
+  "/user/[0-9]+/home$",
+  "/user/[0-9]+/present/index/[0-9]+$",
+  "/user/[0-9]+/present/receive$",
+  "/user/[0-9]+/reward$",
+  "/user/[0-9]+/card$",
+  "/user/[0-9]+/card/addexp/[0-9]+$",
+  "/user/[0-9]+/card/addexp/[0-9]+$",
+  "/user/[0-9]+/item$",
 ].join(',')
 
 def exec(ip_address, command, cwd: CURRENT_DIR)
@@ -223,7 +238,7 @@ task :bench do
   timestamp = Time.now.strftime('%Y%m%d%H%M')
   exec BENCH_IP, "ISUXBENCH_TARGET=13.231.185.75 /home/isucon/bin/benchmarker --stage=prod --request-timeout=10s --initialize-request-timeout=60s > /tmp/bench/#{timestamp}.txt"
   sh "scp #{BENCH_IP}:/tmp/bench/#{timestamp}.txt ./log/bench/#{timestamp}.txt"
-  # exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
+  exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
   # sh "scp #{HOSTS[:host01]}:/tmp/alp/#{timestamp}.html ./log/alp/#{timestamp}.html"
   # exec HOSTS[:host03], "sudo cat /var/log/mysql/slow.log | slp my --format html > /tmp/slp/#{timestamp}.html"
   # sh "scp #{HOSTS[:host03]}:/tmp/slp/#{timestamp}.html ./log/slp/#{timestamp}.html"
