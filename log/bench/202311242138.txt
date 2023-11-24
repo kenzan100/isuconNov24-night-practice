@@ -1,0 +1,5 @@
+12:38:25.801816 初期データ（ロイヤルユーザー）のロードに失敗しました
+12:38:28.804142 [INITIALIZATION_ERR] prepare: initialize-error-failed-to-load-json: open ./dump/royalUserInitialize.json: no such file or directory
+12:38:28.804177 続行不可能なエラーが検出されたので、ここで処理を終了します。
+12:38:28.804201 [PASSED]: false
+12:38:28.804205 [SCORE] 0 (addition: 0, deduction: 0)
