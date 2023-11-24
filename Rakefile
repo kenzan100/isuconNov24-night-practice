@@ -111,7 +111,7 @@ namespace :deploy do
       end
 
       exec ip_address, "sudo rm -f /tmp/sql.log"
-      exec ip_address, "rm -rf tmp/**/*", cwd: RUBY_APP_DIR
+      exec ip_address, "rm -rf tmp/*", cwd: RUBY_APP_DIR
 
       # memcached
       # case name
