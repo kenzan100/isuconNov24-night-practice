@@ -29,7 +29,8 @@ module Isuconquest
       enabled: true,
       mode: :cpu,
       interval: 1000,
-      save_every: 5
+      save_every: 5,
+      path: 'tmp/stackprof/'
 
     enable :logging
     set :show_exceptions, :after_handler
