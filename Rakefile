@@ -219,7 +219,7 @@ end
 
 desc "bench"
 task :bench do
-  exec BENCH_IP, "sudo systemctl stop jiaapi-mock.service"
+  # exec BENCH_IP, "sudo systemctl stop jiaapi-mock.service"
   timestamp = Time.now.strftime('%Y%m%d%H%M')
   exec BENCH_IP, "./bin/benchmarker --stage=prod --request-timeout=10s --initialize-request-timeout=60s > /tmp/bench/#{timestamp}.txt"
   sh "scp #{BENCH_IP}:/tmp/bench/#{timestamp}.txt ./log/bench/#{timestamp}.txt"
