@@ -193,7 +193,7 @@ task :record do
   sh "gh issue comment --repo #{GITHUB_REPO} #{GITHUB_ISSUE_ID} --body '#{message}'"
 end
 
-task :all => [:setup, :deploy, :initialize, :record] # , :bench]
+task :all => [:setup, :deploy, :initialize, :record, :bench]
 
 task :default => :all
 
