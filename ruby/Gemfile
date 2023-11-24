@@ -10,7 +10,7 @@ gem 'sinatra-contrib'
 gem 'bcrypt'
 gem 'rack-cors'
 
-gem 'stackprof'
+gem 'estackprof'
 
 group :development do
   gem 'irb'
