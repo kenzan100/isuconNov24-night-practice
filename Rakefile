@@ -221,7 +221,7 @@ desc "bench"
 task :bench do
   # exec BENCH_IP, "sudo systemctl stop jiaapi-mock.service"
   timestamp = Time.now.strftime('%Y%m%d%H%M')
-  exec BENCH_IP, "/home/isucon/bin/benchmarker --stage=prod --request-timeout=10s --initialize-request-timeout=60s > /tmp/bench/#{timestamp}.txt"
+  exec BENCH_IP, "ISUXBENCH_TARGET=13.231.185.75 /home/isucon/bin/benchmarker --stage=prod --request-timeout=10s --initialize-request-timeout=60s > /tmp/bench/#{timestamp}.txt"
   sh "scp #{BENCH_IP}:/tmp/bench/#{timestamp}.txt ./log/bench/#{timestamp}.txt"
   # exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
   # sh "scp #{HOSTS[:host01]}:/tmp/alp/#{timestamp}.html ./log/alp/#{timestamp}.html"
