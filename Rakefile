@@ -73,7 +73,7 @@ namespace :deploy do
       # mysql
       case name
       when :host01
-        # exec ip_address, "sudo cp infra/mariadb/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf"
+        # exec ip_address, "sudo cp infra/mysql/slowquery.cnf /etc/mysql/mariadb.conf.d/slowquery.cnf"
         exec ip_address, "sudo mysqld --verbose --help > /dev/null"
         exec ip_address, "echo -n | sudo tee /var/log/mysql/slow.log"
         exec ip_address, "sudo systemctl restart mysql"
@@ -84,7 +84,7 @@ namespace :deploy do
       # nginx
       case name
       when :host01
-        # exec ip_address, "sudo cp infra/nginx/nginx.conf  /etc/nginx/sites-enabled/isucondition.conf"
+        # exec ip_address, "sudo cp infra/nginx/isuconquest.conf  /etc/nginx/sites-enabled/isuconquest.conf"
         exec ip_address, "sudo nginx -t"
         exec ip_address, "sudo rm -f /home/isucon/access.log"
         exec ip_address, "sudo systemctl restart nginx"
