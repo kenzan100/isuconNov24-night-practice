@@ -3,6 +3,7 @@
 require 'securerandom'
 require 'mysql2'
 require 'mysql2-cs-bind'
+require 'stackprof'
 require 'open3'
 require 'openssl'
 require 'set'
@@ -24,6 +25,12 @@ module Isuconquest
   end
 
   class App < Sinatra::Base
+    use StackProf::Middleware,
+      enabled: true,
+      mode: :cpu,
+      interval: 1000,
+      save_every: 5
+
     enable :logging
     set :show_exceptions, :after_handler
 
